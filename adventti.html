@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Joulukalenteri">
+    <meta name="author" content="V.V ,E.W.S, R.R & J.S ">
+
+    <link href="adventti.css?v=1.2" rel="stylesheet">
+    
+    <title>Asiallinen Jouluelokuvakalenteri</title>
+
+    <div class="sidebar left"></div>
+    <div class="sidebar right"></div>
+
+</head>
+
+    <ul>
+        <li><button onclick="siirryAlkuun()">Alkuun</button></li>
+        <li><button onclick="tarkistaAika(1)">1</button></li>
+        <li><button onclick="tarkistaAika(2)">2</button></li>
+        <li><button onclick="tarkistaAika(3)">3</button></li>
+        <li><button onclick="tarkistaAika(4)">4</button></li>
+        <li><button onclick="tarkistaAika(5)">5</button></li>
+        <li><button onclick="tarkistaAika(6)">6</button></li>
+        <li><button onclick="tarkistaAika(7)">7</button></li>
+        <li><button onclick="tarkistaAika(8)">8</button></li>
+        <li><button onclick="tarkistaAika(9)">9</button></li>
+        <li><button onclick="tarkistaAika(10)">10</button></li>
+        <li><button onclick="tarkistaAika(11)">11</button></li>
+        <li><button onclick="tarkistaAika(12)">12</button></li>
+        <li><button onclick="tarkistaAika(13)">13</button></li>
+        <li><button onclick="tarkistaAika(14)">14</button></li>
+        <li><button onclick="tarkistaAika(15)">15</button></li>
+        <li><button onclick="tarkistaAika(16)">16</button></li>
+        <li><button onclick="tarkistaAika(17)">17</button></li>
+        <li><button onclick="tarkistaAika(18)">18</button></li>
+        <li><button onclick="tarkistaAika(19)">19</button></li>
+        <li><button onclick="tarkistaAika(20)">20</button></li>
+        <li><button onclick="tarkistaAika(21)">21</button></li>
+        <li><button onclick="tarkistaAika(22)">22</button></li>
+        <li><button onclick="tarkistaAika(23)">23</button></li>
+        <li><button onclick="tarkistaAika(24)">24</button></li>
+    </ul>
+
+    
+    <h1>Elokuva Joulukalenteri</h1>
+    
+    
+    <h2>Tervetuloa seuraamaan elokuvakalenteria! <br> Aloita valitsemalla päivä ja koe elokuvan taikainen yllätys! </h2>
+
+
+        <script>
+const luukut = [
+            { luukunNmr: 1, sivu: "Leffat/1.luukku/Luukku1.html"},
+            { luukunNmr: 2, sivu: "Leffat/2.luukku/Luukku2.html" },
+            { luukunNmr: 3, sivu: "Leffat/3.luukku/Luukku3.html" },
+            { luukunNmr: 4, sivu: "Leffat/4.luukku/Luukku4.html" },
+            { luukunNmr: 5, sivu: "Leffat/5.luukku/Luukku5.html" },
+            { luukunNmr: 6, sivu: "Leffat/6.luukku/Luukku6.html" },
+            { luukunNmr: 7, sivu: "Leffat/7.luukku/Luukku7.html" },
+            { luukunNmr: 8, sivu: "Leffat/8.luukku/Luukku8.html" },
+            { luukunNmr: 9, sivu: "Leffat/9.luukku/Luukku9.html" },
+            { luukunNmr: 10, sivu: "Leffat/10.luukku/Luukku10.html"},
+            { luukunNmr: 11, sivu: "Leffat/11.luukku/Luukku11.html"},
+            { luukunNmr: 12, sivu: "Leffat/12.luukku/Luukku12.html"},
+            { luukunNmr: 13, sivu: "Leffat/13.luukku/Luukku13.html"},
+            { luukunNmr: 14, sivu: "Leffat/14.luukku/Luukku14.html"},
+            { luukunNmr: 15, sivu: "Leffat/15.luukku/Luukku15.html"},
+            { luukunNmr: 16, sivu: "Leffat/16.luukku/Luukku16.html"},
+            { luukunNmr: 17, sivu: "Leffat/17.luukku/Luukku17.html"},
+            { luukunNmr: 18, sivu: "Leffat/18.luukku/Luukku18.html"},
+            { luukunNmr: 19, sivu: "Leffat/19.luukku/Luukku19.html"},
+            { luukunNmr: 20, sivu: "Leffat/20.luukku/Luukku20.html"},
+            { luukunNmr: 21, sivu: "Leffat/21.luukku/Luukku21.html"},
+            { luukunNmr: 22, sivu: "Leffat/22.luukku/Luukku22.html"},
+            { luukunNmr: 23, sivu: "Leffat/23.luukku/Luukku23.html"},
+            { luukunNmr: 24, sivu: "Leffat/24.luukku/Luukku24.html"}
+        ];
+
+        function tarkistaAika(day) {
+            
+            const tamapaiva = new Date();
+            tamapaiva.setHours(0, 0, 0, 0);
+            
+            if (tamapaiva.getMonth()!==11){
+                window.location.href = "Leffat/25.VoiVoiPukki/Luukku25.html";
+                return;
+            }
+            const luukku = luukut.find(luukku => luukku.luukunNmr === day);
+            const luukunAvausPaiva = new Date(tamapaiva.getFullYear(), 11,day);
+
+            if (tamapaiva >= luukunAvausPaiva){
+                window.location.href = luukku.sivu;
+            }else{
+                window.location.href = "Leffat/0.SooSooPukki/Luukku0.html"
+            }
+        }       
+        function siirryAlkuun(){
+            window.location.href = "/adventti.html";
+        }
+           </script>
+    <h3>Muistithan olla kiltisti?</h3>
+</body>
+</html>
